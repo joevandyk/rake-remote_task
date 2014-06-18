@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'open4'
 require 'rake'
+require 'colorize'
 
 $TESTING ||= false
 $TRACE = Rake.application.options.trace
@@ -216,7 +217,12 @@ class Rake::RemoteTask < Rake::Task
         end
 
         data = stream.readpartial(1024)
-        out_stream[stream].write data
+        out_stream[stream].puts "#{target_host}".blue
+        if stream == err
+          out_stream[stream].write data.red
+        else
+          out_stream[stream].write data
+        end
 
         if stream == err and data =~ sudo_prompt then
           inn.puts sudo_password
