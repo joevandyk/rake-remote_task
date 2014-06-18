@@ -17,4 +17,5 @@ PLATFORMS
 
 DEPENDENCIES
   hoe
+  rake
   rake-remote_task!

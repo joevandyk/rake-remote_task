@@ -5,4 +5,5 @@ Gem::Specification.new do |s|
   s.version     = "0"
   s.require_paths = ["lib"]
   s.add_dependency 'colorize', '> 0'
+  s.add_dependency 'rake', '> 0'
 end
